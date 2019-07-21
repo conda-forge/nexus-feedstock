@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/nexusformat/code/archive/v{{ version }}.tar.gz
   sha256: e78a116feb2ebd04de31a8d8707c65e8e15a64aa8999a40fea305e3909bd6533
+  patches:
+    - include_libxml_sax.patch
 
 build:
-  number: 0
+  number: 1
   skip: true    # [win]
 
 requirements:

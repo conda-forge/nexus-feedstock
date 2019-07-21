@@ -1,0 +1,23 @@
+diff --git a/applications/NXtranslate/text_xml/xml_retriever_dom.cpp b/applications/NXtranslate/text_xml/xml_retriever_dom.cpp
+index dcc56f4..da3e366 100644
+--- a/applications/NXtranslate/text_xml/xml_retriever_dom.cpp
++++ b/applications/NXtranslate/text_xml/xml_retriever_dom.cpp
+@@ -1,6 +1,7 @@
+ #include <iostream>
+ #include <libxml/parser.h>
+ #include <libxml/parserInternals.h>
++#include <libxml/SAX.h>
+ #include <stdexcept>
+ #include <string>
+ #include <vector>
+diff --git a/applications/NXtranslate/xml_parser.cpp b/applications/NXtranslate/xml_parser.cpp
+index 70500a1..45823f6 100644
+--- a/applications/NXtranslate/xml_parser.cpp
++++ b/applications/NXtranslate/xml_parser.cpp
+@@ -1,5 +1,6 @@
+ #include <libxml/parser.h>
+ #include <libxml/parserInternals.h>
++#include <libxml/SAX.h>
+ #include <iostream>
+ #include <string>
+ #include <cstring>
