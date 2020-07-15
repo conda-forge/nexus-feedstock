@@ -21,7 +21,7 @@ jpeg:
 libxml2:
 - '2.9'
 ncurses:
-- '6.1'
+- '6.2'
 pin_run_as_build:
   hdf4:
     max_pin: x.x
