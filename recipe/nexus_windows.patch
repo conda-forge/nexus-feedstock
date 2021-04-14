@@ -1,0 +1,68 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4c50538..7b4355a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -286,34 +286,3 @@ else()
+ 	set(ARCHSUFFIX "")
+ endif()
+ 
+-if(WIN32)
+-	file(GLOB HDF4_DLLS "${HDF4_LIBRARY_DIRS}/../bin/*.dll")
+-	# for some reason HDF5_LIBRARY_DIRS is blank
+-	file(GLOB HDF5_DLLS "${HDF5_INCLUDE_DIRS}/../bin/*.dll")
+-	file(GLOB_RECURSE MXML_DLLS "${MXML_LIBRARY_DIRS}/*.dll")
+-	install(FILES ${HDF4_DLLS} ${HDF5_DLLS} ${MXML_DLLS} DESTINATION bin COMPONENT Runtime)
+-	INSTALL(FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION bin COMPONENT Runtime) 
+-endif()
+-
+-file(TO_NATIVE_PATH ${PROJECT_SOURCE_DIR} PROJECT_SOURCE_DIR_NATIVE) 
+-file(TO_NATIVE_PATH ${PROJECT_BINARY_DIR} PROJECT_BINARY_DIR_NATIVE) 
+-string(REPLACE "\\" "\\\\" PROJECT_SOURCE_DIR_NATIVE_D ${PROJECT_SOURCE_DIR_NATIVE})
+-string(REPLACE "\\" "\\\\" PROJECT_BINARY_DIR_NATIVE_D ${PROJECT_BINARY_DIR_NATIVE})
+-
+-configure_file("${PROJECT_SOURCE_DIR}/CPackOptions.cmake.in" "${PROJECT_BINARY_DIR}/CPackOptions.cmake"  @ONLY)
+-set (CPACK_PROJECT_CONFIG_FILE "${PROJECT_BINARY_DIR}/CPackOptions.cmake")
+-set (CPACK_GENERATOR TGZ) # not use ZIP on UNIX as problem with symlinks
+-set (CPACK_SOURCE_GENERATOR TGZ) # not use ZIP on UNIX as problem with symlinks
+-if(WIN32)
+-    set (CPACK_GENERATOR ${CPACK_GENERATOR};ZIP;NSIS)
+-    set (CPACK_SOURCE_GENERATOR ${CPACK_SOURCE_GENERATOR};ZIP) 
+-elseif(APPLE)
+-    set (CPACK_GENERATOR ${CPACK_GENERATOR};PackageMaker)
+-elseif(CYGWIN)
+-    set (CPACK_GENERATOR ${CPACK_GENERATOR};CygwinBinary)
+-    set (CPACK_SOURCE_GENERATOR ${CPACK_SOURCE_GENERATOR};CygwinSource) 
+-elseif(UNIX)
+-    set (CPACK_GENERATOR ${CPACK_GENERATOR};DEB;RPM)
+-endif()
+-# Include of CPack must always be last
+-include(CPack)
+diff --git a/bindings/cpp/NeXusFile.cpp b/bindings/cpp/NeXusFile.cpp
+index 174bd07..cae84f7 100644
+--- a/bindings/cpp/NeXusFile.cpp
++++ b/bindings/cpp/NeXusFile.cpp
+@@ -1240,13 +1240,12 @@ void File::getAttr(const std::string& name, std::vector<std::string>& array) {
+   }
+ 
+   // get attrInfo
+-  char attr_name[name.size()+1];
+-  strcpy(attr_name, name.c_str());
++  std::vector<char> attr_name(name.begin(), name.end());
+ 
+   int type;
+   int rank;
+   int dim[NX_MAXRANK];
+-  NXstatus status = NXgetattrainfo(this->m_file_id, attr_name, &rank, dim, &type);
++  NXstatus status = NXgetattrainfo(this->m_file_id, attr_name.data(), &rank, dim, &type);
+   if (status != NX_OK) {
+     throw Exception("Attribute \"" + name + "\" not found");
+   }
+@@ -1258,7 +1257,7 @@ void File::getAttr(const std::string& name, std::vector<std::string>& array) {
+   // read data
+   std::string sep(", ");
+   char* char_data = new char[dim[0] * (dim[1] + sep.size())];
+-  status = NXgetattra(this->m_file_id, attr_name, char_data);
++  status = NXgetattra(this->m_file_id, attr_name.data(), char_data);
+ 
+   // split data to strings
+   std::string data(char_data);

@@ -9,7 +9,9 @@ cmake \
   -DENABLE_HDF5=ON \
   -DENABLE_CXX=ON \
   -DENABLE_APPS=ON \
+  -DCMAKE_BUILD_TYPE:String=Release \
+  -GNinja \
   ..
 
-make -j${CPU_COUNT}
-make install
+ninja 
+ninja install
