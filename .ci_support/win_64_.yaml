@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 hdf4:
-- '4.2'
+- 4.2.15
 hdf5:
 - 1.10.6
 jpeg:
