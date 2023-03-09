@@ -10,8 +10,8 @@ hdf4:
 - 4.2.15
 hdf5:
 - 1.14.0
-jpeg:
-- '9'
+libjpeg_turbo:
+- 2.1.5
 target_platform:
 - win-64
 zlib:
