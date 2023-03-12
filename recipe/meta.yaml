@@ -13,7 +13,7 @@ source:
     - nexus_windows.patch  # [win]
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -24,7 +24,7 @@ requirements:
   host:
     - hdf5
     - hdf4
-    - jpeg
+    - libjpeg-turbo
     - zlib
     - libxml2  # [not win]
     - ncurses  # [not win]
