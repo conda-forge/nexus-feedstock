@@ -13,7 +13,7 @@ source:
     - nexus_windows.patch  # [win]
 
 build:
-  number: 11
+  number: 12
 
 requirements:
   build:
