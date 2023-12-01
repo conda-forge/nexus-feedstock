@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '16'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '15'
+- '16'
 hdf4:
 - 4.2.15
 hdf5:
@@ -19,7 +19,7 @@ hdf5:
 libjpeg_turbo:
 - '3'
 libxml2:
-- '2.11'
+- '2.12'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:

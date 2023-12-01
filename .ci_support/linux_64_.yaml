@@ -21,7 +21,7 @@ hdf5:
 libjpeg_turbo:
 - '3'
 libxml2:
-- '2.11'
+- '2.12'
 ncurses:
 - '6'
 readline:
