@@ -2,7 +2,7 @@
 
 mkdir build
 cd build
-cmake \
+cmake ${CMAKE_ARGS} \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
   -DCMAKE_INSTALL_LIBDIR=lib \
   -DENABLE_HDF4=ON \
