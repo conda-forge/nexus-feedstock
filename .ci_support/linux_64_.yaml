@@ -17,11 +17,11 @@ docker_image:
 hdf4:
 - 4.2.15
 hdf5:
-- 1.14.2
+- 1.14.3
 libjpeg_turbo:
 - '3'
 libxml2:
-- '2.12'
+- '2'
 ncurses:
 - '6'
 readline:
