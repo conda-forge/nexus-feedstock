@@ -14,4 +14,3 @@ cmake ${CMAKE_ARGS} \
   ..
 
 ninja 
-ninja install
