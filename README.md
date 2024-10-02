@@ -23,14 +23,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/nexus-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/nexus-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -98,7 +91,9 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libnexus-green.svg)](https://anaconda.org/conda-forge/libnexus) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libnexus.svg)](https://anaconda.org/conda-forge/libnexus) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libnexus.svg)](https://anaconda.org/conda-forge/libnexus) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libnexus.svg)](https://anaconda.org/conda-forge/libnexus) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nexus-green.svg)](https://anaconda.org/conda-forge/nexus) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nexus.svg)](https://anaconda.org/conda-forge/nexus) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nexus.svg)](https://anaconda.org/conda-forge/nexus) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nexus.svg)](https://anaconda.org/conda-forge/nexus) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nexus--apps-green.svg)](https://anaconda.org/conda-forge/nexus-apps) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nexus-apps.svg)](https://anaconda.org/conda-forge/nexus-apps) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nexus-apps.svg)](https://anaconda.org/conda-forge/nexus-apps) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nexus-apps.svg)](https://anaconda.org/conda-forge/nexus-apps) |
 
 Installing nexus
 ================
@@ -110,41 +105,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `nexus` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libnexus, nexus, nexus-apps` can be installed with `conda`:
 
 ```
-conda install nexus
-```
-
-or with `mamba`:
-
-```
-mamba install nexus
-```
-
-It is possible to list all of the versions of `nexus` available on your platform with `conda`:
-
-```
-conda search nexus --channel conda-forge
+conda install libnexus nexus nexus-apps
 ```
 
 or with `mamba`:
 
 ```
-mamba search nexus --channel conda-forge
+mamba install libnexus nexus nexus-apps
+```
+
+It is possible to list all of the versions of `libnexus` available on your platform with `conda`:
+
+```
+conda search libnexus --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libnexus --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search nexus --channel conda-forge
+mamba repoquery search libnexus --channel conda-forge
 
-# List packages depending on `nexus`:
-mamba repoquery whoneeds nexus --channel conda-forge
+# List packages depending on `libnexus`:
+mamba repoquery whoneeds libnexus --channel conda-forge
 
-# List dependencies of `nexus`:
-mamba repoquery depends nexus --channel conda-forge
+# List dependencies of `libnexus`:
+mamba repoquery depends libnexus --channel conda-forge
 ```
 
 

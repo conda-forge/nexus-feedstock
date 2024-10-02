@@ -7,11 +7,11 @@ cmake ^
   -DENABLE_HDF5=ON ^
   -DENABLE_CXX=ON ^
   -DENABLE_MXML=OFF ^
+  -DENABLE_APPS=ON ^
   -DCMAKE_BUILD_TYPE:String=Release ^
   -GNinja ^
   ..
 
 if errorlevel 1 exit 1
 ninja
-ninja install
 if errorlevel 1 exit 1
