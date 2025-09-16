@@ -8,6 +8,7 @@ source:
   url: https://github.com/nexusformat/code/archive/v{{ version }}.tar.gz
   sha256: e78a116feb2ebd04de31a8d8707c65e8e15a64aa8999a40fea305e3909bd6533
   patches:
+    - 0001-Remove-deprecated-functions.patch
     - include_libxml_sax.patch
     - nexus_windows.patch  # [win]
 
