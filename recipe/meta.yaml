@@ -8,11 +8,12 @@ source:
   url: https://github.com/nexusformat/code/archive/v{{ version }}.tar.gz
   sha256: e78a116feb2ebd04de31a8d8707c65e8e15a64aa8999a40fea305e3909bd6533
   patches:
+    - 0001-Remove-deprecated-functions.patch
     - include_libxml_sax.patch
     - nexus_windows.patch  # [win]
 
 build:
-  number: 17
+  number: 18
 
 requirements:
   build:
@@ -26,7 +27,7 @@ requirements:
     - hdf4
     - libjpeg-turbo
     - zlib
-    - libxml2   # [not win]
+    - libxml2-devel   # [not win]
     - ncurses   # [not win]
     - readline  # [not win]
 
@@ -51,7 +52,7 @@ outputs:
         - hdf4
         - libjpeg-turbo
         - zlib
-        - libxml2   # [not win]
+        - libxml2-devel   # [not win]
         - ncurses   # [not win]
         - readline  # [not win]
     test:
@@ -82,7 +83,7 @@ outputs:
         - hdf4
         - libjpeg-turbo
         - zlib
-        - libxml2   # [not win]
+        - libxml2-devel   # [not win]
         - ncurses   # [not win]
         - readline  # [not win]
         - {{ pin_subpackage("libnexus", exact=True) }}
